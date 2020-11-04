@@ -1,5 +1,8 @@
 package se.joarc.EnhancedSurvival;
 
+import net.dv8tion.jda.api.AccountType;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -72,6 +75,8 @@ public class EnhancedSurvival extends JavaPlugin implements Listener {
         BukkitTask fireplaceRegenTask = new FireplaceRegenTask(this).runTaskTimer(this, 20*10, 20*10);
 
         this.saveDefaultConfig();
+
+        new DiscordBot(this);
 
         getLogger().info("EnhancedSurvival is enabled!");
     }
