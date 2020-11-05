@@ -12,7 +12,11 @@ public class FixAnvilNamesListener implements Listener {
     @EventHandler
     public void onAnvilNaming(PrepareAnvilEvent e) {
         ItemStack is = e.getResult();
+        if (is == null || !is.hasItemMeta()) return;
+
         ItemMeta im = is.getItemMeta();
+        if (im == null || im.getDisplayName().equalsIgnoreCase("")) return;
+        
         String name = ChatColor.stripColor(im.getDisplayName());
         name = ChatColor.AQUA + ChatColor.translateAlternateColorCodes('&', name);
         im.setDisplayName(name);
