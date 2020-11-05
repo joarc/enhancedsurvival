@@ -23,17 +23,15 @@ public class BlazePokeStickListener implements Listener {
             boolean fireaspect = false;
             boolean pokestick = false;
             for(ItemStack item : inv.getMatrix()) {
-                if (item != null) {
-                    if (item.getType().equals(Material.ENCHANTED_BOOK)) {
-                        EnchantmentStorageMeta spm = (EnchantmentStorageMeta)item.getItemMeta();
-                        if (spm == null) continue;
-                        if (spm.hasStoredEnchant(Enchantment.FIRE_ASPECT)) {
-                            fireaspect = true;
-                        }
-                    } else if (item.getType().equals(Material.STICK)) {
-                        if (item.getItemMeta().getPersistentDataContainer().has(nsk_extra, PersistentDataType.STRING) && item.getItemMeta().getPersistentDataContainer().get(nsk_extra, PersistentDataType.STRING).equals("pokestick")) {
-                            pokestick = true;
-                        }
+                if (item.getType().equals(Material.ENCHANTED_BOOK)) {
+                    EnchantmentStorageMeta spm = (EnchantmentStorageMeta)item.getItemMeta();
+                    if (spm == null) continue;
+                    if (spm.hasStoredEnchant(Enchantment.FIRE_ASPECT)) {
+                        fireaspect = true;
+                    }
+                } else if (item.getType().equals(Material.STICK)) {
+                    if (item.getItemMeta().getPersistentDataContainer().has(nsk_extra, PersistentDataType.STRING) && item.getItemMeta().getPersistentDataContainer().get(nsk_extra, PersistentDataType.STRING).equals("pokestick")) {
+                        pokestick = true;
                     }
                 }
             }

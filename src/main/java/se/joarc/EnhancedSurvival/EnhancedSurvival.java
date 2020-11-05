@@ -45,16 +45,19 @@ public class EnhancedSurvival extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new FireballListener(), this);
         getServer().getPluginManager().registerEvents(new WoodToolsCleanupListener(), this);
         getServer().getPluginManager().registerEvents(new WalkwayBlocksListener(), this);
-        getServer().getPluginManager().registerEvents(new SpeedBootsListener(), this);
-        getServer().getPluginManager().registerEvents(new HoeReplanterListener(this), this);
         getServer().getPluginManager().registerEvents(new SleepListener(), this);
         getServer().getPluginManager().registerEvents(new FixAnvilNamesListener(), this);
         getServer().getPluginManager().registerEvents(new ElytraEasyFlyingListener(), this);
         getServer().getPluginManager().registerEvents(new MinecartBoosterListener(), this);
         getServer().getPluginManager().registerEvents(new WaypointListener(), this);
-        getServer().getPluginManager().registerEvents(new PokeStickListener(), this);
-        getServer().getPluginManager().registerEvents(new BlazePokeStickListener(), this);
         getServer().getPluginManager().registerEvents(new FireplaceRegenListener(this), this);
+
+        /*getServer().getPluginManager().registerEvents(new PokeStickListener(), this);
+        getServer().getPluginManager().registerEvents(new BlazePokeStickListener(), this);
+        getServer().getPluginManager().registerEvents(new SpeedBootsListener(), this);
+        getServer().getPluginManager().registerEvents(new HoeReplanterListener(this), this);
+         */
+
         getServer().getPluginManager().registerEvents(this, this);
 
         this.getCommand("woodtoolcleanup").setExecutor(new WoodToolsCleanupCommand());

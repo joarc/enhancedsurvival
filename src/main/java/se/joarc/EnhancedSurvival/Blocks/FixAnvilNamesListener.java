@@ -16,7 +16,7 @@ public class FixAnvilNamesListener implements Listener {
 
         ItemMeta im = is.getItemMeta();
         if (im == null || im.getDisplayName().equalsIgnoreCase("")) return;
-        
+
         String name = ChatColor.stripColor(im.getDisplayName());
         name = ChatColor.AQUA + ChatColor.translateAlternateColorCodes('&', name);
         im.setDisplayName(name);
