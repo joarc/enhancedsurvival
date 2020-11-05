@@ -44,42 +44,28 @@ public class SpeedBootsListener implements Listener {
         if (inv.getResult().getType().equals(Material.GOLDEN_BOOTS)) {
             ItemStack boots = SpeedBootsRecipe.item();
             ItemStack input_boots = null;
-            boolean input_potion = false;
-            boolean vanilla = false;
+            ItemStack input_potion = null;
+            boolean vanilla = true;
             for(ItemStack item : inv.getMatrix()) {
-                if (item != null) {
-                    if (item.getType().equals(Material.GOLD_INGOT)) {
-                        vanilla = true;
-                        break;
-                    } else if (item.getType().equals(Material.POTION)) {
-                        PotionMeta spm = (PotionMeta)item.getItemMeta();
-                        if (spm == null) continue;
-                        getLogger().info("type:"+spm.getBasePotionData().getType().toString());
-                        if (spm.getBasePotionData().getType().equals(PotionType.SPEED)) {
-                            getLogger().info("Is speed");
-                            input_potion = true;
-                        }
-                    } else if (item.getType().equals(Material.GOLDEN_BOOTS)) {
-                        if (item.getItemMeta() == null) continue;
-                        if (!(item.getItemMeta().getPersistentDataContainer().has(nsk_extra, PersistentDataType.STRING)) || !(item.getItemMeta().getPersistentDataContainer().get(nsk_extra, PersistentDataType.STRING).equals("speedboost"))) {
-                            getLogger().info("Is gold boots");
-                            input_boots = item;
-                        }
+                if (item.getType().equals(Material.POTION)) {
+                    PotionMeta spm = (PotionMeta)item.getItemMeta();
+                    if (spm == null) continue;
+                    getLogger().info("type:"+spm.getBasePotionData().getType().toString());
+                    if (spm.getBasePotionData().getType().equals(PotionType.SPEED)) {
+                        getLogger().info("Is speed");
+                        input_potion = item;
+                    }
+                } else if (item.getType().equals(Material.GOLDEN_BOOTS)) {
+                    if (item.getItemMeta() == null) continue;
+                    if (!(item.getItemMeta().getPersistentDataContainer().has(nsk_extra, PersistentDataType.STRING)) || !(item.getItemMeta().getPersistentDataContainer().get(nsk_extra, PersistentDataType.STRING).equals("speedboost"))) {
+                        getLogger().info("Is gold boots");
+                        input_boots = item;
                     }
                 }
             }
-            if (input_boots != null && input_potion) {
+            if (input_boots != null && input_potion != null) {
                 boots.addEnchantments(input_boots.getEnchantments());
                 inv.setResult(boots);
-            } else {
-                if (vanilla) {
-                    e.setCancelled(false);
-                    return;
-                } else {
-                    e.getInventory().getViewers().get(0).sendMessage(ChatColor.RED + "Invalid Crafting Components!");
-                    inv.setResult(new ItemStack(Material.AIR));
-                    e.setCancelled(true);
-                }
             }
         }
     }
