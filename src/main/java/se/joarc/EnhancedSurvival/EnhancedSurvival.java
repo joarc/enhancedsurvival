@@ -52,9 +52,9 @@ public class EnhancedSurvival extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new WaypointListener(), this);
         getServer().getPluginManager().registerEvents(new FireplaceRegenListener(this), this);
 
+        getServer().getPluginManager().registerEvents(new SpeedBootsListener(), this);
         /*getServer().getPluginManager().registerEvents(new PokeStickListener(), this);
         getServer().getPluginManager().registerEvents(new BlazePokeStickListener(), this);
-        getServer().getPluginManager().registerEvents(new SpeedBootsListener(), this);
         getServer().getPluginManager().registerEvents(new HoeReplanterListener(this), this);
          */
 
@@ -65,8 +65,8 @@ public class EnhancedSurvival extends JavaPlugin implements Listener {
         this.getCommand("heal").setExecutor(new DevCommands());
         this.getCommand("minecartspeed").setExecutor(new DevCommands());
 
-        /*Bukkit.getServer().addRecipe(SpeedBootsRecipe.recipe(this));
-        Bukkit.getServer().addRecipe(HoeReplanterRecipe.recipe(this, Material.STONE_HOE));
+        Bukkit.getServer().addRecipe(SpeedBootsRecipe.recipe(this));
+        /*Bukkit.getServer().addRecipe(HoeReplanterRecipe.recipe(this, Material.STONE_HOE));
         Bukkit.getServer().addRecipe(HoeReplanterRecipe.recipe(this, Material.IRON_HOE));
         Bukkit.getServer().addRecipe(HoeReplanterRecipe.recipe(this, Material.GOLDEN_HOE));
         Bukkit.getServer().addRecipe(HoeReplanterRecipe.recipe(this, Material.DIAMOND_HOE));
