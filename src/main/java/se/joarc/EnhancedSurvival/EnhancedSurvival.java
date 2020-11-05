@@ -65,13 +65,13 @@ public class EnhancedSurvival extends JavaPlugin implements Listener {
         this.getCommand("heal").setExecutor(new DevCommands());
         this.getCommand("minecartspeed").setExecutor(new DevCommands());
 
-        Bukkit.getServer().addRecipe(SpeedBootsRecipe.recipe(this));
+        /*Bukkit.getServer().addRecipe(SpeedBootsRecipe.recipe(this));
         Bukkit.getServer().addRecipe(HoeReplanterRecipe.recipe(this, Material.STONE_HOE));
         Bukkit.getServer().addRecipe(HoeReplanterRecipe.recipe(this, Material.IRON_HOE));
         Bukkit.getServer().addRecipe(HoeReplanterRecipe.recipe(this, Material.GOLDEN_HOE));
         Bukkit.getServer().addRecipe(HoeReplanterRecipe.recipe(this, Material.DIAMOND_HOE));
         Bukkit.getServer().addRecipe(PokeStickRecipe.recipe(this));
-        Bukkit.getServer().addRecipe(BlazePokeStickRecipe.recipe(this));
+        Bukkit.getServer().addRecipe(BlazePokeStickRecipe.recipe(this));*/
         Bukkit.getServer().addRecipe(CleanMapRecipe.recipe(this));
 
         BukkitTask sleepTask = new SleepTask(this).runTaskTimer(this, 1, 1);
